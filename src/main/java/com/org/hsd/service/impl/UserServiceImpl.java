@@ -1,6 +1,7 @@
 package com.org.hsd.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.org.hsd.mapper.UserMapper;
@@ -21,9 +22,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public PageInfo findAllUser(Integer currentPage,Integer pageSize,String condition) {
-        UserBean UserBean = JSONObject.parseObject(condition,UserBean.class);
-        PageHelper.startPage(currentPage==null? Constants.PAGE_NUM:currentPage, pageSize==null?Constants.PAGE_SIZE:pageSize);
-        List<UserBean> userList = userMapper.queryAllUser(UserBean);
+        UserBean userBean = JSONObject.parseObject(condition,UserBean.class);
+//        PageHelper.startPage(currentPage==null? Constants.PAGE_NUM:currentPage, pageSize==null?Constants.PAGE_SIZE:pageSize);
+        List<UserBean> userList = userMapper.queryAllUser(userBean);
+//        EntityWrapper<UserBean> entry = new EntityWrapper<UserBean>();
+//        List<UserBean> userList = userMapper.selectList( entry);
+
         return new PageInfo(userList);
     }
 
@@ -63,7 +67,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserBean getUser(String username) {
         Map<String,Object> map = new HashMap<String,Object>();
-        map.put("name",username);
+        map.put("username",username);
         List<UserBean> list = userMapper.selectByMap(map);
         return list.size()>0?list.get(0):null;
     }

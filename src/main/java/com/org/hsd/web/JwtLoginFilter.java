@@ -36,7 +36,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
         // 返回一个验证令牌
         return getAuthenticationManager().authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        creds.getName(),
+                        creds.getUsername(),
                         creds.getPassword()
                 )
         );
@@ -57,7 +57,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
 
     //验证失败后调用
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().println(ResponseBean.resultString(HttpStatus.UNAUTHORIZED.value(), "登录失败！", null));

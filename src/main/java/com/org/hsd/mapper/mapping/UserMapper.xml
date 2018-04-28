@@ -3,17 +3,17 @@
 <mapper namespace="com.org.hsd.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.org.hsd.model.UserBean">
     <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="AGE" jdbcType="INTEGER" property="age" />
     <result column="SEX" jdbcType="VARCHAR" property="sex" />
     <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, NAME, PASSWORD, AGE, SEX, BIRTHDAY
+    ID, USERNAME, PASSWORD, AGE, SEX, BIRTHDAY
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where ID = #{id,jdbcType=INTEGER}
@@ -23,9 +23,9 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.org.hsd.model.UserBean">
-    insert into user (ID, NAME, PASSWORD, 
+    insert into user (ID, USERNAME, PASSWORD,
       AGE, SEX, BIRTHDAY)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.org.hsd.model.UserBean">
@@ -34,8 +34,8 @@
       <if test="id != null">
         ID,
       </if>
-      <if test="name != null">
-        NAME,
+      <if test="username != null">
+        USERNAME,
       </if>
       <if test="password != null">
         PASSWORD,
@@ -54,8 +54,8 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -74,8 +74,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.org.hsd.model.UserBean">
     update user
     <set>
-      <if test="name != null">
-        NAME = #{name,jdbcType=VARCHAR},
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         PASSWORD = #{password,jdbcType=VARCHAR},
@@ -94,7 +94,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.org.hsd.model.UserBean">
     update user
-    set NAME = #{name,jdbcType=VARCHAR},
+    set USERNAME = #{username,jdbcType=VARCHAR},
       PASSWORD = #{password,jdbcType=VARCHAR},
       AGE = #{age,jdbcType=INTEGER},
       SEX = #{sex,jdbcType=VARCHAR},
@@ -104,8 +104,8 @@
 
   <select id="queryAllUser" resultMap="BaseResultMap" parameterType="com.org.hsd.model.UserBean">
     select <include refid="Base_Column_List" /> from user where 1=1
-    <if test="name != null and name != '' ">
-      and NAME LIKE concat('%',#{name},'%')
+    <if test="username != null and username != '' ">
+      and USERNAME LIKE concat('%',#{username},'%')
     </if>
     <if test="password != null">
       and PASSWORD = #{password,jdbcType=VARCHAR}
@@ -123,6 +123,6 @@
   </select>
 
   <select id="getUser" parameterType="java.lang.String" resultType="com.org.hsd.model.UserBean">
-    select * from user where name = #{name,jdbcType=VARCHAR}
+    select * from user where username = #{username,jdbcType=VARCHAR}
   </select>
 </mapper>
