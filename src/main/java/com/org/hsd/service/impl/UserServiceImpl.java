@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService{
     /**
      * 添加保存用户
      *
-     * @param UserBean
+     * @param userBean
      */
     @Override
     public int saveUser(UserBean userBean) {
