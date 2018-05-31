@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public PageInfo findAllUser(Integer currentPage,Integer pageSize,String condition) {
         UserBean userBean = JSONObject.parseObject(condition,UserBean.class);
-//        PageHelper.startPage(currentPage==null? Constants.PAGE_NUM:currentPage, pageSize==null?Constants.PAGE_SIZE:pageSize);
+        PageHelper.startPage(currentPage==null? Constants.PAGE_NUM:currentPage, pageSize==null?Constants.PAGE_SIZE:pageSize);
         List<UserBean> userList = userMapper.queryAllUser(userBean);
 //        EntityWrapper<UserBean> entry = new EntityWrapper<UserBean>();
 //        List<UserBean> userList = userMapper.selectList( entry);
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService{
     /**
      * 修改保存用户信息
      *
-     * @param UserBean
+     * @param userBean
      * @return
      */
     @Override
