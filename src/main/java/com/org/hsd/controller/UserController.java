@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Created by Administrator on 2017/2/9.
+ *
+ * @author Administrator
+ * @date 2017/2/9
  */
 @RestController
 @RequestMapping(value = "/users")
@@ -30,7 +32,7 @@ public class UserController {
      * 根据ID查询用户
      */
     @GetMapping(value = "/{id}")
-    public UserBean UserBean(@PathVariable("id") int id){
+    public UserBean userBean(@PathVariable("id") int id){
         return userService.findUserById(id);
     }
 
@@ -38,16 +40,16 @@ public class UserController {
      * 修改保存用户
      */
     @PutMapping(value = "/")
-    public int  updateUser(@RequestBody UserBean UserBean){
-        return userService.updateUser(UserBean);
+    public int  updateUser(@RequestBody UserBean userBean){
+        return userService.updateUser(userBean);
     }
 
     /**
      * 添加保存用户
      */
     @PostMapping(value = "/")
-    public int saveUser(@RequestBody UserBean UserBean){
-        return userService.saveUser(UserBean);
+    public int saveUser(@RequestBody UserBean userBean){
+        return userService.saveUser(userBean);
     }
 
     /**
@@ -58,9 +60,4 @@ public class UserController {
         return userService.deleteUserById(id);
     }
 
-
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello";
-    }
 }

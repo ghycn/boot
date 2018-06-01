@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author ghy
+ */
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
@@ -25,9 +28,6 @@ public class UserServiceImpl implements UserService{
         UserBean userBean = JSONObject.parseObject(condition,UserBean.class);
         PageHelper.startPage(currentPage==null? Constants.PAGE_NUM:currentPage, pageSize==null?Constants.PAGE_SIZE:pageSize);
         List<UserBean> userList = userMapper.queryAllUser(userBean);
-//        EntityWrapper<UserBean> entry = new EntityWrapper<UserBean>();
-//        List<UserBean> userList = userMapper.selectList( entry);
-
         return new PageInfo(userList);
     }
 
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public UserBean getUser(String username) {
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<String,Object>(16);
         map.put("username",username);
         List<UserBean> list = userMapper.selectByMap(map);
         return list.size()>0?list.get(0):null;

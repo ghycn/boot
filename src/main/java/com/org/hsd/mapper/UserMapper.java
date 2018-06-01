@@ -5,21 +5,65 @@ import com.org.hsd.model.UserBean;
 
 import java.util.List;
 
+/**
+ * @author ghy
+ */
 public interface UserMapper extends BaseMapper<UserBean> {
 
-        int deleteByPrimaryKey(Integer id);
+    /**
+     * 根据ID删除用户
+     * @param id
+     * @return
+     */
+    int deleteByPrimaryKey(Integer id);
 
-        Integer insert(UserBean record);
+    /**
+     * 添加用户
+     * @param record
+     * @return
+     */
+    @Override
+    Integer insert(UserBean record);
 
-        int insertSelective(UserBean record);
+    /**
+     * 添加用户
+     * @param record
+     * @return
+     */
+    int insertSelective(UserBean record);
 
-        UserBean selectByPrimaryKey(Integer id);
+    /**
+     * 查询用户
+     * @param id
+     * @return
+     */
+    UserBean selectByPrimaryKey(Integer id);
 
-        int updateByPrimaryKeySelective(UserBean record);
+    /**
+     * 修改
+     * @param record
+     * @return
+     */
+    int updateByPrimaryKeySelective(UserBean record);
 
-        int updateByPrimaryKey(UserBean record);
+    /**
+     * 修改
+     * @param record
+     * @return
+     */
+    int updateByPrimaryKey(UserBean record);
 
-        List<UserBean> queryAllUser(UserBean user);
+    /**
+     * 查询用户
+     * @param user
+     * @return
+     */
+    List<UserBean> queryAllUser(UserBean user);
 
-        UserBean getUser(String username);
+    /**
+     * 查询用户根据用户名
+     * @param username
+     * @return
+     */
+    UserBean getUser(String username);
 }

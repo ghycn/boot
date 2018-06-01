@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * 登录认证
+ * @author ghy
  */
 public class CustomAuthenticationProvider  implements AuthenticationProvider {
     private UserService userService;
@@ -31,8 +32,6 @@ public class CustomAuthenticationProvider  implements AuthenticationProvider {
         if(user!=null && user.getPassword().equals(password)){
             // 这里设置权限和角色
             ArrayList<GrantedAuthority> authorities = new ArrayList<>();
-//            authorities.add( new GrantedAuthorityImpl("ROLE_ADMIN") );
-//            authorities.add( new GrantedAuthorityImpl("AUTH_WRITE") );
             // 生成令牌
             Authentication auth = new UsernamePasswordAuthenticationToken(name, password, authorities);
             return auth;
@@ -41,7 +40,9 @@ public class CustomAuthenticationProvider  implements AuthenticationProvider {
         }
     }
 
-    // 是否可以提供输入类型的认证服务
+    /**
+     *  是否可以提供输入类型的认证服务
+     */
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
