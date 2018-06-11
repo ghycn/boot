@@ -9,8 +9,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3307/test?characterEncoding=utf8&useSSL=false
+    password: ghy123456
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中
@@ -38,6 +38,10 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
     logSlowSql: true
+  security:
+    user:
+      name: admin
+      password: 123456
 
 #mybatis-plus配置
 mybatis-plus:
@@ -71,6 +75,8 @@ mybatis-plus:
 logging:
   level:
     com.org.hsd.mapper: debug
+
+
 
 
 

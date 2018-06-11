@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserBean findUserById(int id) {
+    public UserBean findUserById(Integer id) {
         return userMapper.selectById(id);
     }
 

@@ -24,7 +24,7 @@ public interface UserService {
      * @param id
      * @return
      */
-    UserBean findUserById(int id);
+    UserBean findUserById(Integer id);
 
     /**
      * 修改保存用户信息

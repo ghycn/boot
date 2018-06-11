@@ -32,7 +32,7 @@ public class UserController {
      * 根据ID查询用户
      */
     @GetMapping(value = "/{id}")
-    public UserBean userBean(@PathVariable("id") int id){
+    public UserBean userBean(@PathVariable("id") Integer id){
         return userService.findUserById(id);
     }
 
@@ -56,7 +56,7 @@ public class UserController {
      * 删除用户
      */
     @DeleteMapping(value = "/{id}")
-    public int deleteUser(@PathVariable("id") int id){
+    public int deleteUser(@PathVariable("id") Integer id){
         return userService.deleteUserById(id);
     }
 
