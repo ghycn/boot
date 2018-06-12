@@ -16,6 +16,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
@@ -43,12 +44,13 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     }
 
 
-    //验证成功后调用
+    /**
+     * 验证成功后调用
+     */
     @Override
     protected void successfulAuthentication(HttpServletRequest req,HttpServletResponse res, FilterChain chain,Authentication auth) throws IOException {
         //创建jwt
         String tokenStr = JwtUtils.createJWT(auth);
-
         res.setContentType("application/json");
         res.setCharacterEncoding("utf-8");
         res.getWriter().println(ResponseBean.resultString(HttpStatus.OK.value(), "登录成功！", tokenStr));
