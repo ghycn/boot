@@ -27,17 +27,17 @@ public class CustomAuthenticationProvider  implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
 
         userService = SpringUtil.getBean(UserServiceImpl.class);
-
-        UserBean user = userService.getUser(name);
-        if(user!=null && user.getPassword().equals(password)){
-            // 这里设置权限和角色
-            ArrayList<GrantedAuthority> authorities = new ArrayList<>();
-            // 生成令牌
-            Authentication auth = new UsernamePasswordAuthenticationToken(name, password, authorities);
-            return auth;
-        }else {
-            throw new BadCredentialsException("密码错误~");
-        }
+        return null;
+//        UserBean user = userService.getUser(name);
+//        if(user!=null && user.getPassword().equals(password)){
+//            // 这里设置权限和角色
+//            ArrayList<GrantedAuthority> authorities = new ArrayList<>();
+//            // 生成令牌
+//            Authentication auth = new UsernamePasswordAuthenticationToken(name, password, authorities);
+//            return auth;
+//        }else {
+//            throw new BadCredentialsException("密码错误~");
+//        }
     }
 
     /**

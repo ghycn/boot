@@ -1,7 +1,8 @@
 package com.boot.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.boot.model.UserBean;
-import com.github.pagehelper.PageInfo;
 
 /**
  * @author ghy
@@ -15,43 +16,8 @@ public interface UserService {
      * @param currentPage
      * @param pageSize
      * @param condition
-     * @return
-     */
-    PageInfo findAllUser(Integer currentPage, Integer pageSize, String condition);
-
-    /**
-     * 根据ID查询用户
-     * @param id
-     * @return
-     */
-    UserBean findUserById(Integer id);
-
-    /**
-     * 修改保存用户信息
      * @param userBean
      * @return
      */
-    int updateUser(UserBean userBean);
-
-    /**
-     * 删除用户
-     * @param id
-     * @return
-     */
-    int deleteUserById(int id);
-
-    /**
-     * 添加保存用户
-     * @param userBean
-     * @return
-     */
-    int saveUser(UserBean userBean);
-
-    /**
-     * 根据名字查找用户
-     * @param username
-     * @return
-     */
-    UserBean getUser(String username);
-
+    Page findAllUser(Page page, UserBean userBean);
 }

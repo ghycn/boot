@@ -11,7 +11,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/druid/**");//不需要权限验证
+        //匹配一下内容均可任意访问
+        web.ignoring().antMatchers("/swagger-ui.html")
+                .antMatchers("/webjars/**")
+                .antMatchers("/v2/**")
+                .antMatchers("/swagger-resources/**")
+                .antMatchers("/druid/**")
+                .antMatchers("/**");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.boot.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -12,6 +13,7 @@ public class UserBean {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
+    @TableField(value = "NAME")
     private String username;
 
     private String password;
