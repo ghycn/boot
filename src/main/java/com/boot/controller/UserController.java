@@ -27,7 +27,7 @@ public class UserController {
      * @return
      */
     @GetMapping(value = "/")
-    public Page userList(Page page, UserBean userBean){
+    public IPage userList(Page page, UserBean userBean){
         return userService.findAllUser(page,userBean);
     }
 

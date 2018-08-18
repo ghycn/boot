@@ -20,9 +20,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Page findAllUser(Page page, UserBean userBean) {
-       IPage<UserBean> iPage = userMapper.selectPage(page,new QueryWrapper<>(userBean));
-        System.out.println(JSON.toJSONString(iPage));
-        return page;
+    public IPage findAllUser(Page page, UserBean userBean) {
+        IPage iPage = userMapper.selectPage(page, new QueryWrapper<>(userBean));
+        return iPage;
     }
 }

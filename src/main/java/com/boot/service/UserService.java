@@ -19,5 +19,5 @@ public interface UserService {
      * @param userBean
      * @return
      */
-    Page findAllUser(Page page, UserBean userBean);
+    IPage findAllUser(Page page, UserBean userBean);
 }
