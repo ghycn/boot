@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.org.hsd.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.org.hsd.model.UserBean">
+<mapper namespace="com.boot.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.boot.model.UserBean">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
@@ -22,13 +22,13 @@
     delete from user
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.org.hsd.model.UserBean">
+  <insert id="insert" parameterType="com.boot.model.UserBean">
     insert into user (ID, USERNAME, PASSWORD,
       AGE, SEX, BIRTHDAY)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.org.hsd.model.UserBean">
+  <insert id="insertSelective" parameterType="com.boot.model.UserBean">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -71,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.org.hsd.model.UserBean">
+  <update id="updateByPrimaryKeySelective" parameterType="com.boot.model.UserBean">
     update user
     <set>
       <if test="username != null">
@@ -92,7 +92,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.org.hsd.model.UserBean">
+  <update id="updateByPrimaryKey" parameterType="com.boot.model.UserBean">
     update user
     set USERNAME = #{username,jdbcType=VARCHAR},
       PASSWORD = #{password,jdbcType=VARCHAR},
@@ -102,7 +102,7 @@
     where ID = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="queryAllUser" resultMap="BaseResultMap" parameterType="com.org.hsd.model.UserBean">
+  <select id="queryAllUser" resultMap="BaseResultMap" parameterType="com.boot.model.UserBean">
     select <include refid="Base_Column_List" /> from user where 1=1
     <if test="username != null and username != '' ">
       and USERNAME LIKE concat('%',#{username},'%')
@@ -122,7 +122,7 @@
     order by id desc
   </select>
 
-  <select id="getUser" parameterType="java.lang.String" resultType="com.org.hsd.model.UserBean">
+  <select id="getUser" parameterType="java.lang.String" resultType="com.boot.model.UserBean">
     select * from user where username = #{username,jdbcType=VARCHAR}
   </select>
 </mapper>

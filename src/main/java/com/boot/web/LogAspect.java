@@ -1,4 +1,4 @@
-package com.org.hsd.web;
+package com.boot.web;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;

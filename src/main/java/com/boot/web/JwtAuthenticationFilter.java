@@ -1,7 +1,7 @@
-package com.org.hsd.web;
+package com.boot.web;
 
-import com.org.hsd.util.JwtUtils;
-import com.org.hsd.util.ResponseBean;
+import com.boot.util.JwtUtils;
+import com.boot.util.ResponseBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

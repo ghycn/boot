@@ -1,9 +1,9 @@
-package com.org.hsd.web;
+package com.boot.web;
 
-import com.org.hsd.model.UserBean;
-import com.org.hsd.service.UserService;
-import com.org.hsd.service.impl.UserServiceImpl;
-import com.org.hsd.util.SpringUtil;
+import com.boot.util.SpringUtil;
+import com.boot.model.UserBean;
+import com.boot.service.UserService;
+import com.boot.service.impl.UserServiceImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

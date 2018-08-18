@@ -1,7 +1,7 @@
-package com.org.hsd.service;
+package com.boot.service;
 
+import com.boot.model.UserBean;
 import com.github.pagehelper.PageInfo;
-import com.org.hsd.model.UserBean;
 
 /**
  * @author ghy

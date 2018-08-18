@@ -1,9 +1,9 @@
-package com.org.hsd.web;
+package com.boot.web;
 
+import com.boot.util.JwtUtils;
+import com.boot.util.ResponseBean;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.org.hsd.model.UserBean;
-import com.org.hsd.util.JwtUtils;
-import com.org.hsd.util.ResponseBean;
+import com.boot.model.UserBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,7 +16,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {

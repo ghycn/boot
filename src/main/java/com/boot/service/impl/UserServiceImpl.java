@@ -1,13 +1,12 @@
-package com.org.hsd.service.impl;
+package com.boot.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.boot.mapper.UserMapper;
+import com.boot.model.UserBean;
+import com.boot.service.UserService;
+import com.boot.util.Constants;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.org.hsd.mapper.UserMapper;
-import com.org.hsd.model.UserBean;
-import com.org.hsd.service.UserService;
-import com.org.hsd.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ import java.util.Map;
  * @author ghy
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 

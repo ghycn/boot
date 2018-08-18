@@ -1,7 +1,7 @@
-package com.org.hsd.mapper;
+package com.boot.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.org.hsd.model.UserBean;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.boot.model.UserBean;
 
 import java.util.List;
 

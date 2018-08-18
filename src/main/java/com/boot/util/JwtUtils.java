@@ -1,4 +1,4 @@
-package com.org.hsd.util;
+package com.boot.util;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;

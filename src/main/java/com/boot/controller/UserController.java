@@ -1,8 +1,8 @@
-package com.org.hsd.controller;
+package com.boot.controller;
 
+import com.boot.model.UserBean;
+import com.boot.service.UserService;
 import com.github.pagehelper.PageInfo;
-import com.org.hsd.model.UserBean;
-import com.org.hsd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

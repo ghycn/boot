@@ -1,4 +1,4 @@
-package com.org.hsd.util;
+package com.boot.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

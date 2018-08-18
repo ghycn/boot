@@ -1,4 +1,4 @@
-package com.org.hsd.web;
+package com.boot.web;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

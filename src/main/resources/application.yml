@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: ghy123456
-    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://192.168.9.118:3306/test?characterEncoding=utf8&useSSL=false
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中

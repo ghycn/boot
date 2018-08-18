@@ -1,4 +1,4 @@
-package com.org.hsd;
+package com.boot;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
